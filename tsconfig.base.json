@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@yethon-org/search-complete": ["libs/search-complete/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
