@@ -928,4 +928,3 @@ export function dictionary(): Array<string> {
     "Panama City"
   ];
 }
-module.exports.CITY_NAMES = [

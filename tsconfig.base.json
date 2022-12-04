@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@yethon-org/dictionary": ["libs/dictionary/src/index.ts"],
       "@yethon-org/search-complete": ["libs/search-complete/src/index.ts"]
     }
   },
