@@ -1,5 +1,7 @@
 # dictionary
 
+This is an array of US cities.
+
 This library was generated with [Nx](https://nx.dev).
 
 ## Building
