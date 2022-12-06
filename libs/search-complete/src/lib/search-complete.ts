@@ -1,10 +1,5 @@
+import { Search } from "@yethon-org/interfaces";
 
-// TODO - create an interface lib & move
-interface Search {
-  search(word: string): Array<string>;
-}
-
-// Not Optional
 class Node {
   letter: string;
   children: Array<Node>;
@@ -16,21 +11,24 @@ class Node {
 
   complete(word: string): Array<string> {
     // ... Your changes ...
-    return [`${word}foo`, `${word} Bar`];
+
+    return ["New York"];
   }
 }
 
 // Note this class implements the Search interface
-export class searchComplete implements Search {
+export class SearchComplete implements Search {
   root: Node;
 
-  constructor() {
+  constructor(dictionary: Array<string>) {
+    // You'll probably be initializing the dictionary and building a
+    // search structure somewhere here....
     this.root = new Node("");
   }
+
 
   search(word: string): Array<string> {
     const results = this.root.complete(word);
     return results;
   }
-
 }
