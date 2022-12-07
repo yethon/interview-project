@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Search } from "@yethon-org/interfaces";
 
 class Node {
@@ -21,11 +20,11 @@ class Node {
     return found;
   }
 
-  complete(string) {
-    const searchString = string.toUpperCase();
+  complete(word: string) {
+    const searchString = word.toUpperCase();
     const chars = [...searchString];
-    let parent = this;
-    let lastMatch = "";
+    let parent: Node = this;
+    let lastMatch: Node | undefined;
 
     while (chars.length) {
       let letter = chars.shift();
@@ -51,7 +50,6 @@ const traverse = (root: Node, words: Array<string>) => {
   if (root.completedWord) words.push(root.completedWord);
 
   let children = root.children;
-  console.log("children rooot", root)
 
   while (children.length) {
     let child = children.pop();
@@ -69,7 +67,7 @@ export class SearchComplete implements Search {
     this.root = this.createTrie(dictionary);
   }
 
-  // Creation is +1
+  // Creation, but could be cleaner - especially the while clause
   createTrie(words: Array<string>): Node {
     const root = new Node("");
 
@@ -80,29 +78,27 @@ export class SearchComplete implements Search {
 
       while (letters.length) {
         let letter = letters.shift();
-        //@ts-ignore
         let child = parent.findChild(letter);
 
-        if (!child) {
-          //@ts-ignore
+        if (!child && letter) {
           let node = new Node(letter);
           parent.children.push(node);
           if (letters.length === 0) {
-            node.completedWord = word;
+            node.completedWord = word; // return the original title case words
           }
           parent = node;
         } else {
-          if (letters.length === 0) {
-            child.completedWord = word;
+          if (child) {
+            if (letters.length === 0) {
+              child.completedWord = word;
+            }
+            parent = child;
           }
-          parent = child;
         }
       }
     }
 
-
     return root;
-
   }
 
   search(word: string): Array<string> {
@@ -111,3 +107,7 @@ export class SearchComplete implements Search {
     return results;
   }
 }
+
+// Ways that this could be optimized:
+// 1. Don't bother searching unless you have some minimum number of letters
+// 2. Memoize your search results in an LRU Cache
