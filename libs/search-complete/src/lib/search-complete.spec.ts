@@ -4,27 +4,27 @@ import { dictionary } from "@yethon-org/dictionary";
 
 
 describe('searchComplete - Your tests', () => {
-  it('returns search results for word', () => {
-    const words = dictionary().slice(0, 10);
+  it('debugging', () => {
+    const words = ["Boo", "Bos", "Bom"];
     const completions = new SearchComplete(words);
-    const foundWords = completions.search("This test isn't really passing...");
+    const foundWords = completions.search("bo");
 
-    expect(validateWordList(foundWords, ["New York"])).toBe(true);
+    expect(validateWordList(foundWords, words)).toBe(true);
   });
 });
 
 // TODO: Your solution should make these tests pass.
-describe.skip('searchComplete - Your tests', () => {
-  it.skip('dataset of 10 - san', () => {
+describe('searchComplete - Your tests', () => {
+  it('dataset of 10 - san', () => {
     const words = dictionary().slice(0, 10);
     const completions = new SearchComplete(words);
     const foundWords = completions.search("san");
-    const expected = ["San Antonio", "San Diego", "Dallas", "San Jose"];
+    const expected = ["San Antonio", "San Diego", "San Jose"];
 
     expect(validateWordList(foundWords, expected)).toBe(true);
   });
 
-  it.skip('dataset of 10 - philadelph', () => {
+  it('dataset of 10 - philadelph', () => {
     const words = dictionary().slice(0, 10);
     const completions = new SearchComplete(words);
     const foundWords = completions.search("philadelph");
@@ -33,7 +33,7 @@ describe.skip('searchComplete - Your tests', () => {
     expect(validateWordList(foundWords, expected)).toBe(true);
   });
 
-  it.skip('dataset of 25 - d', () => {
+  it('dataset of 25 - d', () => {
     const words = dictionary().slice(0, 25);
     const completions = new SearchComplete(words);
     const foundWords = completions.search("d");
@@ -42,7 +42,7 @@ describe.skip('searchComplete - Your tests', () => {
     expect(validateWordList(foundWords, expected)).toBe(true);
   });
 
-  it.skip('dataset of 25 - d', () => {
+  it('dataset of 25 - d', () => {
     const words = dictionary().slice(0, 25);
     const completions = new SearchComplete(words);
     const foundWords = completions.search("d");
@@ -51,7 +51,7 @@ describe.skip('searchComplete - Your tests', () => {
     expect(validateWordList(foundWords, expected)).toBe(true);
   });
 
-  it.skip('dataset of 200 - bo', () => {
+  it('dataset of 200 - bo', () => {
     const words = dictionary().slice(0, 200);
     const completions = new SearchComplete(words);
     const foundWords = completions.search("bo");
@@ -60,7 +60,7 @@ describe.skip('searchComplete - Your tests', () => {
     expect(validateWordList(foundWords, expected)).toBe(true);
   });
 
-  it.skip('dataset of 500 - sal', () => {
+  it('dataset of 500 - sal', () => {
     const words = dictionary().slice(0, 500);
     const completions = new SearchComplete(words);
     const foundWords = completions.search("SAL");
@@ -69,7 +69,7 @@ describe.skip('searchComplete - Your tests', () => {
     expect(validateWordList(foundWords, expected)).toBe(true);
   });
 
-  it.skip('dataset of 925 - san', () => {
+  it('dataset of 925 - san', () => {
     const words = dictionary().slice(0, 925);
     const completions = new SearchComplete(words);
     const foundWords = completions.search("San");
